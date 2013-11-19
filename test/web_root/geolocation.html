@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <script type="text/javascript" src="./jquery-1.8.2.min.js" ></script>
-    <script type="text/javascript" src="./webinos.js"></script>
+    <script type="text/javascript" src="/js/jquery-1.8.2.min.js" ></script>
+    <script type="text/javascript" src="/webinos.js"></script>
     <script type="text/javascript">
         $('#serviceList').empty();
         $(document).ready(function(){
@@ -75,7 +75,7 @@
                 case error.TIMEOUT: alert("retrieving position timed out");
                 break;
 
-                default: alert("unknown error code = " + error.code + "; message = " + error.message);
+                default: alert("An error has occurred.\n\ncode = " + error.code + "\nmessage = " + error.message +"\ndata = " + JSON.stringify(error.data, undefined, 2));
                 break;
             }
         }
@@ -131,10 +131,10 @@
   	</div></p>
  
   	<p><div style="background-color:lightgray; border:1px solid black">
-		<input type="radio" name="acc" value="high" id="acc_high" checked="checked">enable high accuracy</input><br>
-		<input type="radio" name="acc" value="any" id="acc_any">any accuracy</input><br>
+		<input type="radio" name="acc" value="high" id="acc_high">enable high accuracy</input><br>
+		<input type="radio" name="acc" value="any" id="acc_any" checked="checked">any accuracy</input><br>
 		<input type="number" id="freshness" value="5000">freshness [ms]</input><br>
-		<input type="number" id="timeout" value="1000">timeout [ms]</input><br>
+		<input type="number" id="timeout" value="5000">timeout [ms]</input><br>
 	</div></p>
 
   	<p><div id="debug" style="background-color:yellow; border:1px solid red">
